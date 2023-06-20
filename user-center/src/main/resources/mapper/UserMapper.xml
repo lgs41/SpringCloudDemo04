@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- mybatis 框架头文件声明，类似spring环境，均需要加入头文件 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lgs.dao.UserDao">
+
+    <sql id="sql01">
+        id,user_name as userName,user_pwd as userPwd,role_id as roleId,gender
+    </sql>
+    <select id="getAllUsers" resultType="userVo">
+        select <include refid="sql01"></include>
+        from tb_user
+        <where>
+            <if test="userName!=null and userName!=''">
+                user_name like concat('%',#,'%')
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

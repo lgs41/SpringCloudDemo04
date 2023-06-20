@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud_role_center
+    username: root
+    password: 123456
+
+  application:
+    name: role-center
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+
+mybatis:
+  type-aliases-package: com.lgs.pojo
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+server:
+  port: 8082
+
+pagehelper:
+  helper-dialect: mysql
+
